@@ -25,9 +25,7 @@ linkBook.grid.Items = function (config) {
 			showPreview: true,
 			scrollOffset: 0,
 			getRowClass: function (rec, ri, p) {
-				return !rec.data.active
-					? 'linkbook-grid-row-disabled'
-					: '';
+				return '';
 			}
 		},
 		paging: true,
@@ -139,50 +137,8 @@ Ext.extend(linkBook.grid.Items, MODx.grid.Grid, {
 		return true;
 	},
 
-	disableItem: function (act, btn, e) {
-		var ids = this._getSelectedIds();
-		if (!ids.length) {
-			return false;
-		}
-		MODx.Ajax.request({
-			url: this.config.url,
-			params: {
-				action: 'mgr/item/disable',
-				ids: Ext.util.JSON.encode(ids),
-			},
-			listeners: {
-				success: {
-					fn: function () {
-						this.refresh();
-					}, scope: this
-				}
-			}
-		})
-	},
-
-	enableItem: function (act, btn, e) {
-		var ids = this._getSelectedIds();
-		if (!ids.length) {
-			return false;
-		}
-		MODx.Ajax.request({
-			url: this.config.url,
-			params: {
-				action: 'mgr/item/enable',
-				ids: Ext.util.JSON.encode(ids),
-			},
-			listeners: {
-				success: {
-					fn: function () {
-						this.refresh();
-					}, scope: this
-				}
-			}
-		})
-	},
-
 	getFields: function (config) {
-		return ['id', 'name', 'description', 'active', 'actions'];
+		return ['id', 'name', 'link', 'actions'];
 	},
 
 	getColumns: function (config) {
@@ -197,16 +153,10 @@ Ext.extend(linkBook.grid.Items, MODx.grid.Grid, {
 			sortable: true,
 			width: 200,
 		}, {
-			header: _('linkbook_item_description'),
-			dataIndex: 'description',
+			header: _('linkbook_item_link'),
+			dataIndex: 'link',
 			sortable: false,
 			width: 250,
-		}, {
-			header: _('linkbook_item_active'),
-			dataIndex: 'active',
-			renderer: linkBook.utils.renderBoolean,
-			sortable: true,
-			width: 100,
 		}, {
 			header: _('linkbook_grid_actions'),
 			dataIndex: 'actions',

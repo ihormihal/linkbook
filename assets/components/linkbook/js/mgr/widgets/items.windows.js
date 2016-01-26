@@ -30,17 +30,11 @@ Ext.extend(linkBook.window.CreateItem, MODx.Window, {
 			allowBlank: false,
 		}, {
 			xtype: 'textarea',
-			fieldLabel: _('linkbook_item_description'),
-			name: 'description',
-			id: config.id + '-description',
+			fieldLabel: _('linkbook_item_link'),
+			name: 'link',
+			id: config.id + '-link',
 			height: 150,
 			anchor: '99%'
-		}, {
-			xtype: 'xcheckbox',
-			boxLabel: _('linkbook_item_active'),
-			name: 'active',
-			id: config.id + '-active',
-			checked: true,
 		}];
 	},
 
@@ -87,16 +81,11 @@ Ext.extend(linkBook.window.UpdateItem, MODx.Window, {
 			allowBlank: false,
 		}, {
 			xtype: 'textarea',
-			fieldLabel: _('linkbook_item_description'),
-			name: 'description',
-			id: config.id + '-description',
+			fieldLabel: _('linkbook_item_link'),
+			name: 'link',
+			id: config.id + '-link',
 			anchor: '99%',
 			height: 150,
-		}, {
-			xtype: 'xcheckbox',
-			boxLabel: _('linkbook_item_active'),
-			name: 'active',
-			id: config.id + '-active',
 		}];
 	},
 

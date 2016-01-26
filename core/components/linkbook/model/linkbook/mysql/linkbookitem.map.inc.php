@@ -4,14 +4,14 @@ $xpdo_meta_map['linkBookItem']= array (
   'version' => '1.1',
   'table' => 'linkbook_items',
   'extends' => 'xPDOSimpleObject',
-  'fields' =>
+  'fields' => 
   array (
     'name' => '',
     'link' => '',
   ),
-  'fieldMeta' =>
+  'fieldMeta' => 
   array (
-    'name' =>
+    'name' => 
     array (
       'dbtype' => 'varchar',
       'precision' => '100',
@@ -19,26 +19,25 @@ $xpdo_meta_map['linkBookItem']= array (
       'null' => false,
       'default' => '',
     ),
-    'link' =>
+    'link' => 
     array (
-      'dbtype' => 'varchar',
-      'precision' => '150',
-      'phptype' => 'string',
+      'dbtype' => 'text',
+      'phptype' => 'text',
       'null' => true,
       'default' => '',
     ),
   ),
-  'indexes' =>
+  'indexes' => 
   array (
-    'name' =>
+    'name' => 
     array (
       'alias' => 'name',
       'primary' => false,
       'unique' => false,
       'type' => 'BTREE',
-      'columns' =>
+      'columns' => 
       array (
-        'name' =>
+        'name' => 
         array (
           'length' => '',
           'collation' => 'A',

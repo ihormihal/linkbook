@@ -8,8 +8,7 @@ $_lang['linkbook_intro_msg'] = 'You can select multiple links by holding Shift o
 $_lang['linkbook_items'] = 'Links';
 $_lang['linkbook_item_id'] = 'Id';
 $_lang['linkbook_item_name'] = 'Name';
-$_lang['linkbook_item_description'] = 'Description';
-$_lang['linkbook_item_active'] = 'Active';
+$_lang['linkbook_item_link'] = 'Link';
 
 $_lang['linkbook_item_create'] = 'Create Link';
 $_lang['linkbook_item_update'] = 'Update Link';

@@ -8,8 +8,7 @@ $_lang['linkbook_intro_msg'] = 'Вы можете выделять сразу н
 $_lang['linkbook_items'] = 'ссылкы';
 $_lang['linkbook_item_id'] = 'Id';
 $_lang['linkbook_item_name'] = 'Название';
-$_lang['linkbook_item_description'] = 'Описание';
-$_lang['linkbook_item_active'] = 'Активно';
+$_lang['linkbook_item_link'] = 'Ссылка';
 
 $_lang['linkbook_item_create'] = 'Создать ссылку';
 $_lang['linkbook_item_update'] = 'Изменить ссылку';
