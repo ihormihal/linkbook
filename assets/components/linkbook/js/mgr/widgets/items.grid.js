@@ -155,7 +155,7 @@ Ext.extend(linkBook.grid.Items, MODx.grid.Grid, {
 		}, {
 			header: _('linkbook_item_link'),
 			dataIndex: 'link',
-			sortable: false,
+			sortable: true,
 			width: 250,
 		}, {
 			header: _('linkbook_grid_actions'),

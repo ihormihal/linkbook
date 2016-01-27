@@ -5,34 +5,21 @@ if (!$linkBook = $modx->getService('linkbook', 'linkBook', $modx->getOption('lin
 	return 'Could not load linkBook class!';
 }
 
-// Do your snippet code here. This demo grabs 5 items from our custom table.
-$tpl = $modx->getOption('tpl', $scriptProperties, 'Item');
-$sortby = $modx->getOption('sortby', $scriptProperties, 'name');
-$sortdir = $modx->getOption('sortbir', $scriptProperties, 'ASC');
-$limit = $modx->getOption('limit', $scriptProperties, 5);
-$outputSeparator = $modx->getOption('outputSeparator', $scriptProperties, "\n");
-$toPlaceholder = $modx->getOption('toPlaceholder', $scriptProperties, false);
+$input = $modx->getOption('input', $scriptProperties, '');
 
-// Build query
-$c = $modx->newQuery('linkBookItem');
-$c->sortby($sortby, $sortdir);
-$c->limit($limit);
-$items = $modx->getIterator('linkBookItem', $c);
-
-// Iterate through items
-$list = array();
-/** @var linkBookItem $item */
-foreach ($items as $item) {
-	$list[] = $modx->getChunk($tpl, $item->toArray());
+$query = $modx->newQuery('linkBookItem', array());
+$query->select('name,link');
+if ($query->prepare() && $query->stmt->execute()) {
+    $res = $query->stmt->fetchAll(PDO::FETCH_ASSOC);
+    $find = array();
+    $replace = array();
+    foreach($res as $r){
+        //echo $r['name'].'<br>';
+        $name = $r['name'];
+        $link = $r['link'];
+        $find[] = '/\b('.$name.')\b/iu';
+        $replace[] = '<a class="linkbook" href="'.$link.'">$1</a>';
+    }
+    $input = preg_replace($find,$replace,$input);
 }
-
-// Output
-$output = implode($outputSeparator, $list);
-if (!empty($toPlaceholder)) {
-	// If using a placeholder, output nothing and set output to specified placeholder
-	$modx->setPlaceholder($toPlaceholder, $output);
-
-	return '';
-}
-// By default just return output
-return $output;
+return $input;

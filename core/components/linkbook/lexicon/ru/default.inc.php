@@ -5,7 +5,7 @@ $_lang['linkbook'] = 'linkBook';
 $_lang['linkbook_menu_desc'] = 'Менеджер ссылок.';
 $_lang['linkbook_intro_msg'] = 'Вы можете выделять сразу несколько ссылок при помощи Shift или Ctrl.';
 
-$_lang['linkbook_items'] = 'ссылкы';
+$_lang['linkbook_items'] = 'Ссылки';
 $_lang['linkbook_item_id'] = 'Id';
 $_lang['linkbook_item_name'] = 'Название';
 $_lang['linkbook_item_link'] = 'Ссылка';
